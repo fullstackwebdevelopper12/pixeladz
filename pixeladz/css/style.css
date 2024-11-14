@@ -1,0 +1,923 @@
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.min.css";
+
+
+:root {
+    --primary-color: #0A3C4A;   /* Dark teal (for navbar background and primary accents) */
+    --accent-color: #66BB6A;    /* Bright green (for buttons like "Contact Us") */
+    --text-color: #FFFFFF;      /* White (for text on dark backgrounds) */
+    --secondary-text-color: #B0BEC5; /* Light grey (for muted text) */
+    --background-color: #1C1C1C; /* Very dark grey or black (for the main background) */
+    --card-background: #2C2C2C; /* Slightly lighter grey (for sections like "About Us") */
+}
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+/* Import Google Fonts */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+.hidden {
+    display: none;
+}
+
+.sign-up-form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9); /* Initial scale for animation */
+    background-color: var(--card-background);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 400px;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth popup animation */
+    z-index: 10;
+}
+
+
+.show {
+    display: block;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); /* Smooth scaling to full size */
+}
+
+.blur-background {
+    filter: blur(8px); /* Adjust blur intensity */
+}
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: var(--secondary-text-color);
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+    background-color: #333;
+    color: var(--text-color);
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--accent-color);
+}
+
+.button-group {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4CAF50;
+}
+
+button:focus {
+    outline: none;
+}
+html {
+    font-size: 16px; /* 1rem = 16px */
+}
+
+/* Headings */
+h1 {
+    font-size: 2.5rem; /* 40px */
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2rem; /* 32px */
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.75rem; /* 28px */
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 1.25rem; /* 20px */
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 600;
+}
+
+/* Paragraphs and Text */
+p, li {
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+span {
+    font-size: 0.875rem; /* 14px */
+}
+
+/* Buttons */
+button, .btn {
+    font-size: 1rem; /* 16px */
+    font-weight: 600;
+}
+
+/* Navbar Links */
+.nav-link,  a  {
+    font-size: 0.9375rem; /* 15px */
+    font-weight: 500;
+}
+header 
+{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+}
+.top-header
+{
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+}
+.nav-links-section
+{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--primary-color);
+    border-bottom: 1px solid #000;
+   
+}
+#slide-nav 
+{
+    transform: translateX(0);
+}
+.logo 
+
+{
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-400%);
+  transition: transform 1.2s ease-in-out;
+}
+#slide-logo 
+{
+    transform: translateX(0);
+}
+
+.logo a
+{
+    text-decoration: none;
+    color: yellow;
+}
+nav 
+{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+
+}
+nav 
+ul 
+{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    transform: translateX(400%);
+    transition: transform 1s ease-in-out;
+}
+nav 
+ul 
+li 
+a 
+{
+    text-decoration: none;
+    color: #fff;
+}
+.hero 
+{
+    width: 100%;
+    height:110%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: var(--primary-color);
+    background: linear-gradient(rgba(73, 70, 70, 0.7), rgba(73, 70, 70, 0.7)) ,url('../img/stars.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.hero 
+h1 
+{
+    text-transform: capitalize;
+    font-family: serif;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    
+}
+#opacity 
+{
+    opacity: 1;
+}
+.about
+{
+    width: 100%;
+    height: 60vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background: url('../img/lamp.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+.left-about{
+     width: 50%;
+     display: flex;
+     flex-direction: column;
+     align-items: start;
+     margin-left: 50px;
+     transform: translateX(-100%);
+     transition: transform 1s ease-in-out;
+
+}
+.slide-left-about 
+{
+   transform: translateX(0%);
+}
+.left-about
+span 
+{
+    color: green;
+}
+.left-about
+h1 
+{
+    color: #fff;
+    padding-top: 15px;
+}
+.left-about
+p 
+{
+    color: #fff;
+    line-height: 1.6;
+    padding-top: 20px;
+
+}
+.left-about 
+a 
+{
+    color: #fff;
+    padding: 10px 10px;
+    border-radius: 10px;
+    background-color: var(--accent-color);
+    text-decoration: none;
+    margin-top: 35px;
+}
+.right-about 
+{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-self: flex-end;
+    align-items: center;
+    justify-content: center;
+    margin-right: 150px;
+    
+}
+
+.right-about
+figure 
+{
+    width: 70%;
+    height: 80%;
+   opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.right-about
+figure
+img 
+{
+    width: 100%;
+    height: 100%;
+}
+#slide-figure
+{
+opacity: 1;}
+.contact 
+{
+    background-color: var(--accent-color);
+    text-align: center;
+    padding: 5px 10px ;
+    border-radius: 10px;
+}
+.philosophy
+{
+    width: 100%;
+    height: 600px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+}
+.top
+{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+
+}
+.top 
+p 
+{
+    line-height: 1.6;
+    padding-top: 10px;
+}
+.cards
+{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 60%;
+    margin-top: 30px;
+}
+.cards
+.card{
+    width: 23%;
+    height: 250px;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+.interior-card
+{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.interior-card
+i 
+{
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 50%;
+    width: 50px ;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    background-color: var(--accent-color);
+}
+/* Initial Positions for Sliding Animations */
+.card-left {
+    transform: translateX(-150%);
+    transition: transform 1s ease-in-out;
+}
+
+.card-right {
+    transform: translateX(150%);
+    transition: transform 1s ease-in-out;
+}
+
+/* Triggered Animation Styles */
+.slide-card-left {
+    transform: translateX(0);
+}
+
+.slide-card-right {
+    transform: translateX(0);
+}
+/* Center Card Flip Animation */
+.card-center {
+    transform: rotateY(180deg); /* Initial flipped position */
+    transition: transform 1s ease-in-out;
+}
+
+.flip-card {
+    transform: rotateY(0); /* Flip to visible side */
+}
+
+/* Slide Animations for h1 and p */
+.h1-slide-left {
+    transform: translateX(-150%);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.p-slide-right {
+    transform: translateX(150%);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.slide-in-left {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.slide-in-right {
+    transform: translateX(0);
+    opacity: 1;
+}
+/* Adjust Logo Margin */
+.logo {
+    width: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px; /* Adjust the margin to position the logo properly */
+}
+
+/* Adjust the About Section (prevent it from concatenating with the Hero) */
+.about {
+    width: 100%;
+    height: 60vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.8)), url('../img/lamp.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 50px; /* Add margin-top to separate it from the hero */
+}
+
+/* Adjust Cards Width */
+.cards .card {
+    width: 30%; /* Decreased card width to fit well on larger screens */
+    height: 250px;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Media Query for smaller screens */
+@media screen and (max-width: 1200px) {
+    .cards .card {
+        width: 45%; /* Adjust card width to 45% on medium screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cards .card {
+        width: 80%; /* Adjust card width to 80% on smaller screens */
+        margin: 10px 0; /* Add some margin for spacing */
+    }
+
+    /* Adjust About Section */
+    .about {
+        flex-direction: column; /* Stack the left and right about sections */
+        height: auto;
+    }
+
+    .left-about {
+        width: 100%;
+        margin-left: 0;
+        transform: translateX(0); /* Reset animation for smaller screens */
+    }
+
+    .right-about {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 20px; /* Add some space above the right-about section */
+    }
+
+    /* Navbar - Convert to Mobile View */
+    .nav-links-section {
+        flex-direction: column;
+        height: auto;
+        background-color: var(--primary-color);
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    nav ul li {
+        margin-bottom: 10px; /* Add space between navbar items */
+    }
+
+    .logo {
+        margin-left: 0; /* Remove left margin on mobile */
+        width: 10%; /* Increase logo size on mobile */
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Reduce font size of the hero title on mobile */
+    }
+}
+
+/* Media Query for very small screens */
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.5rem; /* Further reduce font size for very small screens */
+    }
+
+    .nav-links-section {
+        display: none; /* Hide navigation by default */
+    }
+
+    .nav-bar {
+        display: block; /* Make the hamburger menu visible */
+    }
+
+    .hamburger-menu {
+        display: block; /* Make the hamburger menu visible */
+    }
+
+    /* Adjust the About Section Layout */
+    .left-about {
+        margin-left: 0;
+        transform: translateX(0);
+        width: 100%; /* Make the left-about section take full width */
+    }
+
+    .right-about {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    /* Center card content for small screens */
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cards .card {
+        width: 90%; /* Make the card take up most of the screen width */
+        margin-bottom: 20px; /* Space between cards */
+    }
+}
+.performance 
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #000;
+    background: linear-gradient(rgba(30, 30, 30, 0.8), rgba(30, 30, 30, 0.8)), url('../img/lamp.jpg');     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 100px;
+}
+.left-per
+{
+    width: 40%;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 50px;
+
+}
+.left-per
+span
+{
+    color: green;
+}
+.left-per 
+h1 
+{
+    padding-top: 20px;
+}
+.left-per 
+p
+{
+    padding-top: 20px;
+}
+.right-per
+{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.right-per 
+.top-card 
+{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.right-per 
+.bottom-card 
+{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.card
+i
+{
+    color: #fff;
+    font-size: 25px;
+    z-index: 10000;
+}
+.card
+h3 
+{
+    color: #fff;
+    padding-top: 25px;
+}
+.card 
+p 
+{
+    color: #fff;
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+.card
+a{
+    text-decoration: none;
+    color: var(--accent-color);
+    margin-top: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.site-footer
+{
+  background-color:#26272b;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+.performance .card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.performance .card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.cards .card {
+    width: 30%;
+    height: 250px;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.6s ease, background-color 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.interior-card {
+    position: absolute;
+    backface-visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.card .interior-card:nth-child(2) {
+    opacity: 0;
+    visibility: hidden;
+}
